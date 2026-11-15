@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muitozika12.github.io/site-consultoria/sitemap.xml
