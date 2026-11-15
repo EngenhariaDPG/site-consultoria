@@ -1,5 +1,5 @@
-/* Configure com o número em formato internacional, sem espaços ou símbolos.
-   Exemplo: 5532999999999. Deixe vazio para apenas preparar/copiar a mensagem. */
+/* Número no formato internacional, somente dígitos.
+   Exemplo ilustrativo: 5532999999999. Deixe vazio para copiar o briefing. */
 const WHATSAPP_NUMBER = "";
 
 document.documentElement.classList.add("js-ready");
@@ -12,22 +12,18 @@ function closeMenu() {
   menuButton.setAttribute("aria-expanded", "false");
   menuButton.setAttribute("aria-label", "Abrir menu");
   navigation.classList.remove("is-open");
-  document.body.classList.remove("menu-open");
 }
 
 if (menuButton && navigation) {
   menuButton.addEventListener("click", function () {
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-    menuButton.setAttribute("aria-expanded", String(!isOpen));
-    menuButton.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
-    navigation.classList.toggle("is-open", !isOpen);
-    document.body.classList.toggle("menu-open", !isOpen);
+    const open = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!open));
+    menuButton.setAttribute("aria-label", open ? "Abrir menu" : "Fechar menu");
+    navigation.classList.toggle("is-open", !open);
   });
-
   navigation.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", closeMenu);
   });
-
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") closeMenu();
   });
@@ -42,8 +38,7 @@ if ("IntersectionObserver" in window) {
         currentObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: "0px 0px -35px 0px" });
-
+  }, { threshold: 0.12, rootMargin: "0px 0px -30px 0px" });
   revealItems.forEach(function (item) { observer.observe(item); });
 } else {
   revealItems.forEach(function (item) { item.classList.add("is-visible"); });
@@ -52,74 +47,63 @@ if ("IntersectionObserver" in window) {
 const year = document.getElementById("current-year");
 if (year) year.textContent = String(new Date().getFullYear());
 
-const form = document.getElementById("lead-form");
+const form = document.getElementById("contact-form");
 const result = document.getElementById("form-result");
 const resultText = document.getElementById("form-result-text");
 const copyButton = document.getElementById("copy-message");
-let preparedMessage = "";
+let messageToCopy = "";
 
-function getFormMessage(data) {
+function buildMessage(data) {
   return [
-    "Olá! Gostaria de conversar sobre um serviço de engenharia mecânica.",
+    "Olá! Gostaria de conversar com a DPG Engenharia Mecânica.",
     "",
     "Nome: " + data.get("nome"),
     "Empresa: " + (data.get("empresa") || "Não informada"),
     "Cidade/Estado: " + data.get("cidade"),
-    "Serviço de interesse: " + data.get("servico"),
+    "Serviço: " + data.get("servico"),
     "",
     "Descrição da necessidade:",
-    data.get("mensagem"),
-    "",
-    "Enviado pelo site Denys Pinto | Engenharia Mecânica."
+    data.get("mensagem")
   ].join("\n");
 }
 
-async function copyPreparedMessage() {
-  if (!preparedMessage) return false;
+async function copyMessage() {
+  if (!messageToCopy) return;
   try {
-    await navigator.clipboard.writeText(preparedMessage);
+    await navigator.clipboard.writeText(messageToCopy);
     copyButton.innerHTML = "Mensagem copiada <span aria-hidden='true'>✓</span>";
-    return true;
   } catch (error) {
-    const helper = document.createElement("textarea");
-    helper.value = preparedMessage;
-    helper.setAttribute("readonly", "");
-    helper.style.position = "fixed";
-    helper.style.opacity = "0";
-    document.body.appendChild(helper);
-    helper.select();
+    const field = document.createElement("textarea");
+    field.value = messageToCopy;
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.appendChild(field);
+    field.select();
     const copied = document.execCommand("copy");
-    helper.remove();
-    copyButton.innerHTML = copied ? "Mensagem copiada <span aria-hidden='true'>✓</span>" : "Selecione e copie a mensagem";
-    return copied;
+    field.remove();
+    copyButton.innerHTML = copied ? "Mensagem copiada <span aria-hidden='true'>✓</span>" : "Não foi possível copiar";
   }
 }
 
 if (form) {
-  form.addEventListener("submit", async function (event) {
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (!form.reportValidity()) return;
-
-    const data = new FormData(form);
-    preparedMessage = getFormMessage(data);
+    messageToCopy = buildMessage(new FormData(form));
     result.hidden = false;
 
     if (WHATSAPP_NUMBER.trim()) {
-      const url = "https://wa.me/" + WHATSAPP_NUMBER.trim() + "?text=" + encodeURIComponent(preparedMessage);
-      resultText.textContent = "Seu briefing está pronto. Use o botão abaixo para copiar ou abra a conversa pelo WhatsApp.";
+      resultText.textContent = "Seu briefing está pronto. Abra o WhatsApp para encaminhar a solicitação.";
       copyButton.innerHTML = "Abrir WhatsApp <span aria-hidden='true'>↗</span>";
-      copyButton.onclick = function () { window.open(url, "_blank", "noopener,noreferrer"); };
+      copyButton.onclick = function () {
+        const url = "https://wa.me/" + WHATSAPP_NUMBER.trim() + "?text=" + encodeURIComponent(messageToCopy);
+        window.open(url, "_blank", "noopener,noreferrer");
+      };
     } else {
-      resultText.textContent = "O briefing foi montado. Copie a mensagem e encaminhe pelo seu canal de contato. O WhatsApp pode ser configurado no arquivo script.js.";
+      resultText.textContent = "O briefing foi preparado neste navegador. Copie a mensagem e encaminhe pelo canal de contato da DPG.";
       copyButton.innerHTML = "Copiar mensagem <span aria-hidden='true'>⧉</span>";
-      copyButton.onclick = copyPreparedMessage;
-      await copyPreparedMessage();
+      copyButton.onclick = copyMessage;
     }
-
     result.scrollIntoView({ behavior: "smooth", block: "nearest" });
   });
-}
-
-if (copyButton && !copyButton.onclick) {
-  copyButton.addEventListener("click", copyPreparedMessage);
 }

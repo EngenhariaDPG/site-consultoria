@@ -1,38 +1,47 @@
-# Denys Pinto — Engenharia Mecânica
+# DPG Engenharia Mecânica
 
-Site institucional estático, responsivo e pronto para publicação pelo GitHub Pages.
+Site institucional estático, responsivo e alinhado ao Manual da Marca DPG (outubro de 2026).
 
-## Arquivos
+## Estrutura
 
-- \`index.html\`: estrutura, conteúdo e metadados.
-- \`styles.css\`: identidade visual, layout e responsividade.
-- \`script.js\`: menu mobile, animações, ano automático e formulário de briefing.
-- \`favicon.svg\`: ícone do site.
+- \`index.html\` — conteúdo, navegação, serviços e formulário de briefing.
+- \`styles.css\` — layout responsivo e identidade visual.
+- \`script.js\` — menu mobile, animações, ano automático e preparação de contato.
+- \`logo.svg\` — assinatura DPG reproduzida a partir da arte incorporada ao manual enviado.
+- \`favicon.svg\` — ícone do site.
 
-## Configuração do WhatsApp
+## Identidade visual aplicada
 
-Abra \`script.js\` e edite a primeira configuração:
+- Grafite: \`#111820\`
+- Azul técnico: \`#245BDB\`
+- Preto: \`#000000\`
+- Branco: \`#FFFFFF\`
+- Apoio: \`#F2F4F7\` e \`#5B6470\`
+- Tipografia: Arial
+- Grafismos diagonais inspirados nos cortes do monograma.
+
+## Configurar o WhatsApp
+
+No início de \`script.js\`, preencha:
 
 \`\`\`js
 const WHATSAPP_NUMBER = "5532999999999";
 \`\`\`
 
-Use o número real com código do país e DDD, somente dígitos. Exemplo ilustrativo: \`55 + DDD + número\`.
+Use o número real com código do país e DDD, somente dígitos. O exemplo acima é ilustrativo. Enquanto o valor estiver vazio, o formulário prepara a mensagem e permite copiá-la. Não há envio de dados a um servidor externo.
 
-Enquanto o número estiver vazio, o formulário prepara a mensagem e oferece a opção de copiá-la. Não existe envio automático de dados para um servidor.
+## Publicação via GitHub Pages
 
-## Publicar pelo GitHub Pages
-
-1. No repositório, acesse **Settings → Pages**.
+1. Abra **Settings → Pages** no repositório.
 2. Em **Build and deployment**, selecione **Deploy from a branch**.
 3. Escolha a branch \`main\` e a pasta \`/(root)\`.
-4. Salve e aguarde a publicação do GitHub Pages.
+4. Salve e aguarde a publicação.
 
-## Personalização antes de divulgar
+## Antes de divulgar
 
-- Substitua as imagens ilustrativas por fotografias próprias de inspeções, projetos e trabalhos autorizados.
-- Configure o WhatsApp em \`script.js\`.
-- Revise os serviços, atribuições profissionais, região de atendimento e informações do CREA antes da publicação comercial.
-- Inclua endereço de e-mail e perfis profissionais somente quando os canais estiverem definidos.
+- Substitua a ilustração esquemática por registros reais de serviços quando houver imagens próprias e autorização para publicação.
+- Revise os textos dos serviços e a adequação das atribuições profissionais ao escopo que será divulgado.
+- Inclua WhatsApp, e-mail e número do CREA somente após confirmar os dados finais.
+- A assinatura visual não substitui razão social, CNPJ, endereço ou outros dados cadastrais em documentos formais.
 
-As imagens externas e as fontes são carregadas de seus respectivos provedores. O site não inclui dependências de frameworks.
+O formulário não utiliza backend. Imagens de projetos e clientes devem ser publicadas apenas com autorização, evitando dados internos, placas ou documentos sensíveis.
