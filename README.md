@@ -1,16 +1,8 @@
 # DPG Engenharia Mecânica
 
-Site institucional estático, responsivo e alinhado ao Manual da Marca DPG (outubro de 2026).
+Site institucional estático e responsivo, alinhado ao Manual da Marca DPG.
 
-## Estrutura
-
-- \`index.html\` — conteúdo, navegação, serviços e formulário de briefing.
-- \`styles.css\` — layout responsivo e identidade visual.
-- \`script.js\` — menu mobile, animações, ano automático e preparação de contato.
-- \`logo.svg\` — assinatura DPG reproduzida a partir da arte incorporada ao manual enviado.
-- \`favicon.svg\` — ícone do site.
-
-## Identidade visual aplicada
+## Identidade visual
 
 - Grafite: \`#111820\`
 - Azul técnico: \`#245BDB\`
@@ -18,35 +10,30 @@ Site institucional estático, responsivo e alinhado ao Manual da Marca DPG (outu
 - Branco: \`#FFFFFF\`
 - Apoio: \`#F2F4F7\` e \`#5B6470\`
 - Tipografia: Arial
-- Grafismos diagonais inspirados nos cortes do monograma.
 
-## Configurar o WhatsApp
+## Funcionalidades
 
-No início de \`script.js\`, preencha:
+- Navegação responsiva com menu mobile.
+- Seções de serviços, atuação, clientes, responsável técnico e contato.
+- Formulário de briefing que prepara uma mensagem e abre o WhatsApp.
+- WhatsApp configurado: \`5532999042269\`.
+- CREA exibido: \`142398574-5\`.
 
-\`\`\`js
-const WHATSAPP_NUMBER = "5532999042269";
-\`\`\`
+## Publicação
 
-Use o número real com código do país e DDD, somente dígitos. O exemplo acima é ilustrativo. Enquanto o valor estiver vazio, o formulário prepara a mensagem e permite copiá-la. Não há envio de dados a um servidor externo.
+O repositório pode ser publicado pelo GitHub Pages: **Settings → Pages → Deploy from a branch → main → /(root)**.
 
-## Publicação via GitHub Pages
+## Imagens
 
-1. Abra **Settings → Pages** no repositório.
-2. Em **Build and deployment**, selecione **Deploy from a branch**.
-3. Escolha a branch \`main\` e a pasta \`/(root)\`.
-4. Salve e aguarde a publicação.
+As fotografias são imagens ilustrativas servidas pelo Unsplash. Elas não representam trabalhos realizados pela DPG. Os links das fotografias e créditos aparecem no rodapé do site.
 
-## Antes de divulgar
+## Clientes
 
-- Substitua a ilustração esquemática por registros reais de serviços quando houver imagens próprias e autorização para publicação.
-- Revise os textos dos serviços e a adequação das atribuições profissionais ao escopo que será divulgado.
-- Inclua WhatsApp, e-mail e número do CREA somente após confirmar os dados finais.
-- A assinatura visual não substitui razão social, CNPJ, endereço ou outros dados cadastrais em documentos formais.
+A seção apresenta, em texto, JF Locação, Tranmovimento e Rocha Equipamentos como empresas atendidas em diferentes demandas profissionais. Os logotipos e depoimentos não foram reproduzidos; qualquer uso de marca deve ser validado e autorizado pela respectiva empresa.
 
-O formulário não utiliza backend. Imagens de projetos e clientes devem ser publicadas apenas com autorização, evitando dados internos, placas ou documentos sensíveis.
+## Revisão antes de divulgação
 
-## Contatos cadastrados
-
-- WhatsApp: (32) 99904-2269
-- CREA: nº 142398574-5
+- Confirmar nomes empresariais e autorização para exibição de nomes de clientes.
+- Substituir fotos ilustrativas por registros próprios de serviços da DPG, quando disponíveis e autorizados.
+- Revisar todos os escopos divulgados conforme as atribuições profissionais e serviços efetivamente ofertados.
+- O formulário não armazena dados em servidor; ele redireciona para o WhatsApp do contato configurado.
