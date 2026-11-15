@@ -25,7 +25,7 @@ Site institucional estático, responsivo e alinhado ao Manual da Marca DPG (outu
 No início de \`script.js\`, preencha:
 
 \`\`\`js
-const WHATSAPP_NUMBER = "5532999999999";
+const WHATSAPP_NUMBER = "5532999042269";
 \`\`\`
 
 Use o número real com código do país e DDD, somente dígitos. O exemplo acima é ilustrativo. Enquanto o valor estiver vazio, o formulário prepara a mensagem e permite copiá-la. Não há envio de dados a um servidor externo.
@@ -45,3 +45,8 @@ Use o número real com código do país e DDD, somente dígitos. O exemplo acima
 - A assinatura visual não substitui razão social, CNPJ, endereço ou outros dados cadastrais em documentos formais.
 
 O formulário não utiliza backend. Imagens de projetos e clientes devem ser publicadas apenas com autorização, evitando dados internos, placas ou documentos sensíveis.
+
+## Contatos cadastrados
+
+- WhatsApp: (32) 99904-2269
+- CREA: nº 142398574-5

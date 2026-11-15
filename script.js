@@ -1,6 +1,6 @@
 /* Número no formato internacional, somente dígitos.
    Exemplo ilustrativo: 5532999999999. Deixe vazio para copiar o briefing. */
-const WHATSAPP_NUMBER = "";
+const WHATSAPP_NUMBER = "5532999042269";
 
 document.documentElement.classList.add("js-ready");
 

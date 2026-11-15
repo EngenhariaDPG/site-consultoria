@@ -290,3 +290,14 @@ img, svg { display: block; max-width: 100%; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
   .js-ready .reveal { opacity: 1; transform: none; }
 }
+
+/* Direct contact details */
+.contact__direct { display: grid; gap: 7px; margin-top: 25px; }
+.contact__direct > span { color: rgba(255,255,255,.48); font-size: 8px; font-weight: 700; letter-spacing: .15em; }
+.contact__direct a { display: inline-flex; width: fit-content; align-items: center; gap: 13px; color: var(--white); font-size: 19px; font-weight: 700; letter-spacing: -.02em; }
+.contact__direct a b { color: #83a4ff; font-size: 17px; }
+.contact__direct a:hover { color: #a9beff; }
+@media (max-width: 720px) {
+  .contact__direct { margin-top: 21px; }
+  .contact__direct a { font-size: 18px; }
+}
