@@ -37,3 +37,8 @@ A seção apresenta, em texto, JF Locação, Tranmovimento e Rocha Equipamentos 
 - Substituir fotos ilustrativas por registros próprios de serviços da DPG, quando disponíveis e autorizados.
 - Revisar todos os escopos divulgados conforme as atribuições profissionais e serviços efetivamente ofertados.
 - O formulário não armazena dados em servidor; ele redireciona para o WhatsApp do contato configurado.
+
+
+### Créditos fotográficos
+
+As fotos usadas são identificadas nas respectivas páginas do Unsplash, indicadas também no rodapé do site. Consulte as páginas individuais antes de reutilizar as imagens fora deste site.
